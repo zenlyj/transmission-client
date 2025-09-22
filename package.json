@@ -1,0 +1,26 @@
+{
+  "name": "transmission-client",
+  "version": "1.0.0",
+  "description": "TypeScript API for BitTorrent client - Transmission",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zenlyj/transmission-client.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zenlyj/transmission-client/issues"
+  },
+  "homepage": "https://github.com/zenlyj/transmission-client#readme",
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
