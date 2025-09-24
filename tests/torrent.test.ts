@@ -2,7 +2,7 @@ import { mapTorrentRpcToTorrent, TorrentStatus } from "../src/types";
 import { TorrentRpc } from "../src/validation";
 
 describe("Torrent test", () => {
-  const mockTorrentRpc: TorrentRpc = {
+  const torrentRpcFixture: TorrentRpc = {
     id: 1,
     name: "flac audio",
     status: 0,
@@ -12,51 +12,51 @@ describe("Torrent test", () => {
   };
 
   it("should map Torrent eta to `Unknown` literal", () => {
-    const mockTorrentRpcWithUnknownEta: TorrentRpc = {
-      ...mockTorrentRpc,
+    const torrentRpcFixtureWithUnknownEta: TorrentRpc = {
+      ...torrentRpcFixture,
       eta: -1,
     };
 
-    const torrent = mapTorrentRpcToTorrent(mockTorrentRpcWithUnknownEta);
+    const torrent = mapTorrentRpcToTorrent(torrentRpcFixtureWithUnknownEta);
 
     expect(torrent.eta).toBe("Unknown");
   });
 
   it("should map Torrent eta to `Stopped` literal", () => {
-    const mockTorrenRpctWithStoppedEta: TorrentRpc = {
-      ...mockTorrentRpc,
+    const torrentRpcFixturetWithStoppedEta: TorrentRpc = {
+      ...torrentRpcFixture,
       eta: -2,
     };
 
-    const torrent = mapTorrentRpcToTorrent(mockTorrenRpctWithStoppedEta);
+    const torrent = mapTorrentRpcToTorrent(torrentRpcFixturetWithStoppedEta);
 
     expect(torrent.eta).toBe("Stopped");
   });
 
   it("should map Torrent eta to number", () => {
-    const torrent = mapTorrentRpcToTorrent(mockTorrentRpc);
+    const torrent = mapTorrentRpcToTorrent(torrentRpcFixture);
 
-    expect(torrent.eta).toBe(mockTorrentRpc.eta);
+    expect(torrent.eta).toBe(torrentRpcFixture.eta);
   });
 
   it("should map Torrent status to `Download` literal", () => {
-    const mockTorrentRpcWithDownloadStatus: TorrentRpc = {
-      ...mockTorrentRpc,
+    const torrentRpcFixtureWithDownloadStatus: TorrentRpc = {
+      ...torrentRpcFixture,
       status: 4,
     };
 
-    const torrent = mapTorrentRpcToTorrent(mockTorrentRpcWithDownloadStatus);
+    const torrent = mapTorrentRpcToTorrent(torrentRpcFixtureWithDownloadStatus);
 
     expect(torrent.status).toBe(TorrentStatus.Download);
   });
 
   it("should map Torrent status to `Stopped` literal", () => {
-    const mockTorrentRpcWithStoppedStatus: TorrentRpc = {
-      ...mockTorrentRpc,
+    const torrentRpcFixtureWithStoppedStatus: TorrentRpc = {
+      ...torrentRpcFixture,
       status: 0,
     };
 
-    const torrent = mapTorrentRpcToTorrent(mockTorrentRpcWithStoppedStatus);
+    const torrent = mapTorrentRpcToTorrent(torrentRpcFixtureWithStoppedStatus);
 
     expect(torrent.status).toBe(TorrentStatus.Stopped);
   });
