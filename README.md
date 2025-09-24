@@ -1,1 +1,1 @@
-TypeScript API for BitTorrent client - Transmission
+Transmission RPC client for TypeScript
